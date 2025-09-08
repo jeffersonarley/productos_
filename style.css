@@ -99,6 +99,7 @@
       margin: 2% auto;
       padding: 20px;
       max-width: 1000px;
+      height: auto;
     }
 
     /* Sidebar */
@@ -198,10 +199,10 @@
     .img{
       width: 100%;
       height: auto;
-      margin-top: 13px;
+      margin-top: 20px;
     }
     .special-button{
-      margin-top: -233px;
+      margin-top: -10px;
     }
 
     .contenido{
@@ -297,19 +298,47 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      align-items: stretch; /* Asegura que todos los productos tengan la misma altura */
     }
 
    
     .producto {
       background: #fff;
       border: 1px solid #ddd;
-      padding: 15px;
-      text-align: center;
+      padding: 0px;
       position: relative;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;           /* Cambia a flexbox */
+      flex-direction: column;  /* Mantiene la imagen arriba y el info abajo */
+      align-items: stretch;    /* Estira ambos contenedores al ancho */
       text-align: left;
+      height: 100%; /* Hace que todos los productos tengan la misma altura */
     }
+    .img-container {
+      width: 100%;
+      margin-bottom: 0; /* Elimina el espacio extra debajo de la imagen */
+    }
+    .galeria2 .img-container img {
+  width: 100%;
+  height: 211px;      /* Altura fija para todas las imágenes */
+  object-fit: cover;  /* Recorta la imagen si es necesario */
+  border-radius: 5px; /* Opcional: bordes redondeados */
+}
+
+.info-container {
+  width: 100%;
+  margin-top: 23px; /* Espacio entre imagen y info */
+  background: #f7f7f7;     /* Fondo para diferenciar */
+  padding: 12px 10px;      /* Espaciado interno */
+  border-radius: 4px;      /* Bordes redondeados */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04); /* Sombra suave */
+  flex: 1; /* Ocupa todo el espacio disponible debajo de la imagen */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Alinea el contenido al fondo */
+  border: 1px solid #e0dcdc;
+}
     .producto img { max-width: 100%; height: auto; }
     .producto h3 { font-size: 10px;
      }
@@ -340,10 +369,14 @@
   cursor: pointer;
   margin-top: 10px;
   border: 1pxzz;
+  padding-right: 50px;
 }
-
+.Bo{
+  border: 1px solid #b1aeae;
+  background-color: rgb(224, 221, 221);
+}
 .icon-container {
-  margin-right: 8px; /* Adds space between the icon and the text */
+  margin-right: 29px; /* Adds space between the icon and the text */
   font-size: 16px; /* Adjusts the icon size */
   background-color:black;
   padding: 5px;
@@ -359,6 +392,12 @@ margin-left: -5px;}
       padding: 15px;
       color: white;
     }
+    
+   #holas{
+    background-color: rgb(209, 201, 201);
+    color: rgb(158, 158, 160);
+    }
+    #h{ background-color: #666262;}
 
     /* ---- SPECIAL OFFER (sin borde, texto a la izquierda) ---- */
     .galeria3{
