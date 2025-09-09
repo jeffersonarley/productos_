@@ -4,14 +4,15 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 2%;
-      background-color: #f0ecec;
+      background-color: #a5a5a5;
     }
 
     .padre {
       max-width: 1400px;
       margin: auto;
-      background: #f9f9f9;
+      background: #c2c0c0;
       border: 1px solid #ccc;
+      min-height: 120px; /* Ajusta el valor según el largo que necesites */
     }
 
     /* Barra superior */
@@ -98,8 +99,8 @@
       background-color: #ffffff;
       margin: 2% auto;
       padding: 20px;
-      max-width: 1000px;
-      height: auto;
+      max-width: 1000px; /* <-- Valor recomendado */
+      height:2320px;
     }
 
     /* Sidebar */
@@ -228,8 +229,8 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       width: 100%;
-      height: 32%;
       margin: 30px 0 0 0;
+;
     
     }
   .galeria .item {
@@ -245,9 +246,13 @@
 .galeria .item img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 130px; /* altura fija para todas las imágenes */
+  object-fit: cover; /* recorta la imagen si es necesario */
+  padding: 14px;
 }
-
+.galeria{
+  height: 29%;
+}
 .galeria .item p {
   position: absolute;
   bottom: 0;
@@ -309,11 +314,10 @@
       position: relative;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;           /* Cambia a flexbox */
-      flex-direction: column;  /* Mantiene la imagen arriba y el info abajo */
-      align-items: stretch;    /* Estira ambos contenedores al ancho */
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
       text-align: left;
-      height: 100%; /* Hace que todos los productos tengan la misma altura */
     }
     .img-container {
       width: 100%;
@@ -324,11 +328,12 @@
   height: 211px;      /* Altura fija para todas las imágenes */
   object-fit: cover;  /* Recorta la imagen si es necesario */
   border-radius: 5px; /* Opcional: bordes redondeados */
+  margin-top: 15px;
 }
 
 .info-container {
   width: 100%;
-  margin-top: 23px; /* Espacio entre imagen y info */
+  margin-top: 50px; /* Espacio entre imagen y info */
   background: #f7f7f7;     /* Fondo para diferenciar */
   padding: 12px 10px;      /* Espaciado interno */
   border-radius: 4px;      /* Bordes redondeados */
@@ -416,7 +421,7 @@ margin-left: -5px;}
     }
     .special-offer img{
       width: 100%;
-      height: 200px;        /* misma altura para las 3 */
+      height: 130px;        /* misma altura para las 3 */
       object-fit: cover;    /* recorte limpio como en la referencia */
       display: block;
       margin: 0 0 10px 0;
@@ -447,6 +452,58 @@ margin-left: -5px;}
       border-radius: 3px;
     }
 
+    /* Footer */
+    .footer-final {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 120px;
+  background: #e9e7e7;
+  margin-top: 140px;
+  border-top: 1px solid #e0e0e0;
+  margin-left: -19px;
+  font-size: 15px;
+  padding: 1px 50px 30px 50px;
+  width: 104.1%;         /* Ocupa todo el ancho del div segundo */
+  box-sizing: border-box; /* Incluye el padding en el ancho */
+  grid-column: 1 / -1; /* Si .segundo es grid, esto fuerza a ocupar todas las columnas */
+}
+
+.footer-final h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.footer-final ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-final ul li {
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.logo-footer .footer-logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.logo-footer .footer-slogan {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.logo-footer address {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+}
+ 
     /* Responsividad */
     @media (max-width: 992px) {
       .segundo { grid-template-columns: 1fr; }
