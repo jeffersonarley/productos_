@@ -456,16 +456,15 @@ margin-left: -5px;}
     .footer-final {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 120px;
+  gap: 40px;
   background: #e9e7e7;
-  margin-top: 140px;
+  margin-top: 40px;
   border-top: 1px solid #e0e0e0;
-  margin-left: -19px;
   font-size: 15px;
-  padding: 1px 50px 30px 50px;
-  width: 104.1%;         /* Ocupa todo el ancho del div segundo */
-  box-sizing: border-box; /* Incluye el padding en el ancho */
-  grid-column: 1 / -1; /* Si .segundo es grid, esto fuerza a ocupar todas las columnas */
+  padding: 30px 50px;
+  width: 100%;           /* Ocupa todo el ancho del div segundo */
+  box-sizing: border-box;
+  grid-column: 1 / span 2; /* Ocupa las dos columnas del grid de .segundo */
 }
 
 .footer-final h4 {
