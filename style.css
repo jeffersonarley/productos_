@@ -100,7 +100,7 @@
       margin: 2% auto;
       padding: 20px;
       max-width: 1000px; /* <-- Valor recomendado */
-      height:2320px;
+      height:2640px;
     }
 
     /* Sidebar */
@@ -458,13 +458,12 @@ margin-left: -5px;}
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   background: #e9e7e7;
-  margin-top: 40px;
+  margin-top: 190px;
   border-top: 1px solid #e0e0e0;
-  font-size: 15px;
-  padding: 30px 50px;
-  width: 100%;           /* Ocupa todo el ancho del div segundo */
-  box-sizing: border-box;
-  grid-column: 1 / span 2; /* Ocupa las dos columnas del grid de .segundo */
+  font-size: 13px;
+  width: 100vw;            /* Ocupa todo el ancho de la ventana */
+  box-sizing: border-box;  /* Incluye el padding en el ancho */
+  margin-left: calc(-40vw + 50%); /* Centra el footer si el body tiene margin:auto */
 }
 
 .footer-final h4 {
@@ -502,16 +501,388 @@ margin-left: -5px;}
   color: #666;
   line-height: 1.6;
 }
- 
-    /* Responsividad */
-    @media (max-width: 992px) {
-      .segundo { grid-template-columns: 1fr; }
-      .sidebar { order: 2; }
-      .contenido { order: 1; }
-    }
-    @media (max-width: 768px) {
-      .galeria, .galeria2, .galeria3 { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .galeria, .galeria2, .galeria3 { grid-template-columns: 1fr; }
-    }
+
+/* --- RESPONSIVE LAYOUT GENERAL --- */
+@media (max-width: 1200px) {
+  .padre, .segundo {
+    max-width: 100%;
+    padding: 10px;
+  }
+  .footer-final {
+    padding: 30px 20px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .segundo {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    height: auto;
+  }
+  .sidebar {
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 20px;
+  }
+  .contenido {
+    margin-top: 0;
+  }
+  .footer-final {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 30px 10px;
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+  }
+  .padre, .segundo {
+    padding: 0;
+    max-width: 100vw;
+  }
+  .sidebar {
+    padding: 10px 5px;
+  }
+  .galeria, .galeria2, .galeria3 {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .footer-final {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 20px 5px;
+    margin-top: 40px;
+    width: 100%;
+  }
+  .footer-final .footer-col {
+    margin-bottom: 20px;
+  }
+  .logo-footer .footer-logo {
+    font-size: 24px;
+  }
+}
+
+/* --- CORRECCIONES PARA FOOTER --- */
+.footer-final {
+  width: 100%;
+  margin-left: 0;
+  grid-column: 1 / -1;
+  box-sizing: border-box;
+  padding: 30px 50px;
+  gap: 80px;
+}
+
+@media (max-width: 400px) {
+  .footer-final {
+    padding: 10px 2px;
+    font-size: 12px;
+  }
+  .logo-footer .footer-logo {
+    font-size: 18px;
+  }
+}
+
+/* --- CORRECCIONES PARA IMÁGENES --- */
+.galeria .item img,
+.galeria2 .img-container img,
+.special-offer img {
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* --- BOTONES Y TEXTO --- */
+button {
+  font-size: 14px;
+  padding: 8px 12px;
+  min-width: 120px;
+}
+
+@media (max-width: 600px) {
+  button {
+    font-size: 12px;
+    min-width: 80px;
+    padding: 6px 8px;
+  }
+}
+
+/* --- HEADER Y TOP BAR --- */
+@media (max-width: 900px) {
+  .top-bar, .header-main {
+    padding: 8px 10px;
+  }
+  .logo {
+    left: 10px;
+    font-size: 200%;
+  }
+  .account-cart, .carrito {
+    right: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-main {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    padding: 10px 0;
+  }
+  .logo {
+    position: static;
+    font-size: 150%;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .account-cart, .carrito {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .search-box {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .search-box input {
+    width: 70vw;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 1075px) {
+  .header-main {
+    height: 80px;
+    background-color: #ebeaea;
+    box-shadow: 0 0 20px rgb(160, 159, 159);
+    position: relative;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .logo {
+    left: 40px;
+    font-size: 220%;
+  }
+  .account-cart {
+    right: 180px;
+  }
+  .carrito {
+    right: 40px;
+  }
+  .search-box {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 0%;
+    width: 220px;
+  }
+}
+
+@media (max-width: 86px) {
+  .header-main {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    padding: 18px 0 12px 0;
+    box-shadow: 0 0 20px rgb(160, 159, 159);
+    background-color: #ebeaea;
+    gap: 10px;
+  }
+  .logo {
+    position: static;
+    font-size: 180%;
+    margin-bottom: 8px;
+    text-align: center;
+    margin-top: 0;
+    color: #222;
+    letter-spacing: 2px;
+  }
+  .search-box {
+    position: static;
+    width: 90vw;
+    max-width: 350px;
+    margin: 0 auto 10px auto;
+    justify-content: center;
+    display: flex;
+  }
+  .search-box input {
+    width: 100%;
+    min-width: 120px;
+    font-size: 15px;
+  }
+  .account-cart, .carrito {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    justify-content: center;
+    margin-bottom: 0;
+    margin-top: 8px;
+    font-size: 15px;
+  }
+}
+
+/* --- TEXTO --- */
+.galeria .item p,
+.galeria2 .producto h3,
+.special-offer h3 {
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .galeria .item p,
+  .galeria2 .producto h3,
+  .special-offer h3 {
+    font-size: 13px;
+  }
+}
+
+ /* ----- ESTILO BASE (pantallas grandes ≥1200px) ----- */
+.header-main {
+  position: relative;
+  height: 80px;
+  background-color: #ebeaea;
+  box-shadow: 0 0 20px rgb(160, 159, 159);
+}
+
+.logo {
+  position: absolute;
+  left: 130px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 300%;
+  font-family: "Oswald", "Roboto Condensed", sans-serif;
+  font-weight: bold;
+}
+
+.account-cart {
+  position: absolute;
+  right: 252px;
+  top: 51%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: 14px;
+  line-height: 2;
+}
+.account-cart * { margin: 0; padding: 0; }
+
+.carrito {
+  position: absolute;
+  right: 126px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.search-box input {
+  padding: 8px 3px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  outline: none;
+  width: 250px;
+}
+.search-box button {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 0 3px 3px 0;
+  background-color: #e6e6e6;
+  cursor: pointer;
+  color: black;
+}
+.search-box button:hover { background-color: #d4d4d4; }
+
+
+/* ----- RESPONSIVE BREAKPOINTS ----- */
+
+/* 1075px – 1200px (laptops grandes) */
+@media (max-width: 1200px) {
+  .logo { left: 40px; font-size: 220%; }
+  .account-cart { right: 180px; }
+  .carrito { right: 40px; }
+  .search-box {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 220px;
+  }
+}
+
+/* 900px – 1075px (laptops medianas) */
+@media (max-width: 1075px) {
+  .logo { left: 30px; font-size: 200%; }
+  .account-cart { right: 120px; }
+  .carrito { right: 20px; }
+}
+
+/* 600px – 900px (tablets) */
+@media (max-width: 900px) {
+  .header-main { padding: 8px 10px; }
+  .logo { left: 10px; font-size: 180%; }
+  .account-cart, .carrito { right: 10px; }
+}
+
+/* ≤600px (móviles) */
+@media (max-width: 600px) {
+  .header-main {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    position: static;
+  }
+  .logo {
+    position: static;
+    font-size: 150%;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .account-cart, .carrito {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .search-box {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .search-box input {
+    width: 70vw;
+    min-width: 120px;
+  }
+}
+
+/* ≤400px (móviles muy pequeños) */
+@media (max-width: 400px) {
+  .logo { font-size: 120%; }
+  .account-cart, .carrito { font-size: 12px; gap: 8px; }
+  .search-box input { width: 90vw; font-size: 14px; }
+}
+
