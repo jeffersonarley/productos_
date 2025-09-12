@@ -474,18 +474,7 @@ button:disabled { background: #797171; cursor: not-allowed; }
     font-size: 13px;
     color: #666;
     line-height: 1.6;
-} --- RESPONSIVE LAYOUT GENERAL --- *
-
-@media (max-width: 1200px) {
-  .padre, .segundo {
-    max-width: 100%;
-    padding: 10px;
-  }
-  .footer-final {
-    padding: 30px 20px;
-    gap: 40px;
-  }
-}
+} --- RESPONSIVE LAYOUT GENERAL --
 
 @media (max-width: 900px) {
   .segundo {
