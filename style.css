@@ -6,7 +6,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 2%;
-    background-color: #a5a5a5;
+    background-color: #e4e2e2;
 }
 
 .padre {
@@ -435,7 +435,7 @@ button:disabled { background: #797171; cursor: not-allowed; }
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     background: #e9e7e7;
-    margin-top: 190px;
+    margin-top: 194px;
     border-top: 1px solid #e0e0e0;
     font-size: 13px;
     width: 10%;
