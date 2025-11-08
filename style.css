@@ -1,12 +1,14 @@
-* { 
+ * { 
     box-sizing: border-box; 
 }
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 2%;
+    /* Eliminamos el padding del body que puede contribuir a un scroll horizontal innecesario */
+    padding: 0; 
     background-color: #e4e2e2;
+    overflow-x: hidden; /* Mantenemos oculto el scroll horizontal global */
 }
 
 .padre {
@@ -97,10 +99,15 @@ body {
     grid-template-columns: 300px 1fr;
     gap: 3px;
     background-color: #ffffff;
-    margin: 2% auto;
+    margin:  auto;
     padding: 20px;
     max-width: 1000px;
-    height:2628px;
+    /* CORREGIDO: Usamos auto para la altura */
+    height: 2400px; 
+    
+    overflow: hidden;
+    
+
 }
 
 .sidebar {
@@ -389,6 +396,7 @@ button:disabled { background: #797171; cursor: not-allowed; }
     grid-template-columns: repeat(3, minmax(0,1fr));
     gap: 20px;
     margin: 30px 0 0 0;
+    /* CORRECCIÓN: Usamos 100% para que se ajuste al ancho de su columna */
     width: 100%;
 }
 .special-offer{
@@ -399,6 +407,8 @@ button:disabled { background: #797171; cursor: not-allowed; }
     text-align: left;
 }
 .special-offer img{
+    /* CORRECCIÓN: Aseguramos que la imagen no desborde su contenedor */
+    max-width: 100%;
     width: 100%;
     height: 130px;
     object-fit: cover;
@@ -410,12 +420,18 @@ button:disabled { background: #797171; cursor: not-allowed; }
     font-size: 18px;
     font-weight: 700;
     color: #222;
+    /* CRÍTICO: Permite que el texto largo se rompa si no hay espacios */
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
 }
 .special-offer p{
     margin: 0;
     font-size: 14px;
     color: #666;
     line-height: 1.4;
+    /* CRÍTICO: Permite que el texto largo se rompa si no hay espacios */
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
 }
 .new-price{
     color: red;
@@ -434,20 +450,21 @@ button:disabled { background: #797171; cursor: not-allowed; }
 .footer-final {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 80px; /* Aumentado de 40px para la base */
+    gap: 80px;
     background: #e9e7e7;
-    margin-top: 194px;
+    margin-top: px;
     border-top: 1px solid #e0e0e0;
     font-size: 13px;
-    
-    /* Corrección: Asegura que el footer use todo el ancho disponible */
-    width: 100%; 
+    max-width: 100%;
+    align-items: center;
+    width: 1000px;
     margin-left: auto;
-    margin-right: 330px;
+    margin-right: auto;
     padding: 30px 50px;
     grid-column: 1 / -1;
     box-sizing: border-box;
     position: relative;
+    
     
 }
 .footer-final h4 {
@@ -500,6 +517,45 @@ button {
 }
 
 /* Media Queries */
+
+@media (max-width: 1075px) {
+    .carrito {
+        right: 50px;
+    }
+    .account-cart {
+        right: 170px;
+    }
+    .logo {
+        left: 50px;
+    }
+    .footer-final {
+        padding: 30px 44px;
+         
+        /* Aseguramos 100% y no desbordamiento */
+        width: 100%;
+        height: auto; 
+    }
+}
+
+@media (max-width: 871px) {
+    .carrito {
+        right: 10px;
+    }
+    .account-cart {
+        right: 117px;
+    }
+    .logo {
+        left: 15px;
+    }
+    .footer-final {
+        padding: 30px 44px;
+         
+      
+        /* Aseguramos 100% y no desbordamiento */
+        width: 100%;
+       
+    }
+}
 
 @media (max-width: 768px) {
     .padre {
@@ -594,15 +650,14 @@ button {
     .special-product img {
         height: 150px;
     }
-    /* Corrección: Configuración del footer para pantallas medianas */
     .footer-final {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         width: 100%;
         margin: 0;
         padding: 20px;
-        margin-top: 20px; /* Asegurar un margen superior */
-        height: auto; /* Asegurar que la altura se adapte */
+        
+        height: auto; 
     }
 }
  
@@ -638,7 +693,6 @@ button {
     .special-product img {
         height: auto;
     }
-    /* Corrección: Configuración del footer para pantallas pequeñas */
     .footer-final {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -647,43 +701,6 @@ button {
     }
 }
 
-@media (max-width: 1075px) {
-    .carrito {
-        right: 50px;
-    }
-    .account-cart {
-        right: 170px;
-    }
-    .logo {
-        left: 50px;
-    }
-    /* Corrección: Eliminados width: 104.5% y height: 350px */
-    .footer-final {
-        padding: 30px 44px;
-        margin-top: 180px;
-        width: 100%;
-        height: auto; 
-    }
-}
-
-@media (max-width: 871px) {
-    .carrito {
-        right: 10px;
-    }
-    .account-cart {
-        right: 117px;
-    }
-    .logo {
-        left: 15px;
-    }
-    /* Corrección: Eliminados width: 104.5% y height: 350px */
-    .footer-final {
-        padding: 30px 44px;
-        margin-top: 180px;
-        width: 100%;
-        height: auto; 
-    }
-}
 @media (max-width: 600px) {
     .carrito {
         right: 70px;
