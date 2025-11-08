@@ -430,18 +430,25 @@ button:disabled { background: #797171; cursor: not-allowed; }
     border-radius: 3px;
 }
 
+/* Base Footer Styles - Corregidos */
 .footer-final {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 80px; /* Aumentado de 40px para la base */
     background: #e9e7e7;
     margin-top: 194px;
     border-top: 1px solid #e0e0e0;
     font-size: 13px;
-    width: 10%;
-    margin-left: -20px;
-    margin-right: -20px;
-    padding: 20px;
+    
+    /* Corrección: Asegura que el footer use todo el ancho disponible */
+    width: 100%; 
+    margin-left: auto;
+    margin-right: 330px;
+    padding: 30px 50px;
+    grid-column: 1 / -1;
+    box-sizing: border-box;
+    position: relative;
+    
 }
 .footer-final h4 {
     margin-bottom: 10px;
@@ -473,31 +480,26 @@ button:disabled { background: #797171; cursor: not-allowed; }
     color: #666;
     line-height: 1.6;
 }
-.footer-final {
-  width: 104.2%;
-  margin-right: 7px;
-  grid-column: 1 / -1;
-  box-sizing: border-box;
-  padding: 30px 50px;
-  gap: 80px;
-}
+
 .galeria .item img,
 .galeria2 .img-container img,
 .special-offer img {
-  max-width: 100%;
-  object-fit: cover;
-  border-radius: 5px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
 }
 button {
-  font-size: 14px;
-  padding: 8px 12px;
-  min-width: 120px;
+    font-size: 14px;
+    padding: 8px 12px;
+    min-width: 120px;
 }
 .galeria .item p,
 .galeria2 .producto h3,
 .special-offer h3 {
-  font-size: 16px;
+    font-size: 16px;
 }
+
+/* Media Queries */
 
 @media (max-width: 768px) {
     .padre {
@@ -592,15 +594,18 @@ button {
     .special-product img {
         height: 150px;
     }
+    /* Corrección: Configuración del footer para pantallas medianas */
     .footer-final {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         width: 100%;
         margin: 0;
         padding: 20px;
+        margin-top: 20px; /* Asegurar un margen superior */
+        height: auto; /* Asegurar que la altura se adapte */
     }
 }
-
+ 
 @media (max-width: 480px) {
     .header-main {
         padding: 10px;
@@ -633,9 +638,12 @@ button {
     .special-product img {
         height: auto;
     }
+    /* Corrección: Configuración del footer para pantallas pequeñas */
     .footer-final {
         grid-template-columns: 1fr;
         gap: 15px;
+        padding: 15px;
+        height: auto;
     }
 }
 
@@ -649,13 +657,15 @@ button {
     .logo {
         left: 50px;
     }
+    /* Corrección: Eliminados width: 104.5% y height: 350px */
     .footer-final {
-       padding-left: 44px;
-       margin-top: 180px;
-       height: 350px ;
-       width: 104.5%;
+        padding: 30px 44px;
+        margin-top: 180px;
+        width: 100%;
+        height: auto; 
     }
 }
+
 @media (max-width: 871px) {
     .carrito {
         right: 10px;
@@ -666,15 +676,16 @@ button {
     .logo {
         left: 15px;
     }
-    
-    }
+    /* Corrección: Eliminados width: 104.5% y height: 350px */
     .footer-final {
-       padding-left: 44px;
-       margin-top: 180px;
-       height: 350px ;
-       width: 104.5%;
+        padding: 30px 44px;
+        margin-top: 180px;
+        width: 100%;
+        height: auto; 
     }
+}
 @media (max-width: 600px) {
     .carrito {
         right: 70px;
-    } 
+    }
+}
